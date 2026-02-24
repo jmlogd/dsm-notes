@@ -233,8 +233,12 @@
     "highlight": {
       "type": "TOKEN",
       "content": {
-        "type": "PATTERN",
-        "value": ">[^\\n]+"
+        "type": "PREC",
+        "value": 5,
+        "content": {
+          "type": "PATTERN",
+          "value": "::[^\\n]+"
+        }
       }
     },
     "code": {
@@ -428,7 +432,7 @@
         "value": -1,
         "content": {
           "type": "PATTERN",
-          "value": "[^\\s\\n()\\[\\]#@`>]+"
+          "value": "[^\\s\\n()\\[\\]#@`>:]+"
         }
       }
     },
