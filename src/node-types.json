@@ -20,11 +20,6 @@
     "fields": {}
   },
   {
-    "type": "highlight",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "line_content",
     "named": true,
     "fields": {},
@@ -293,10 +288,6 @@
     "named": false
   },
   {
-    "type": ">",
-    "named": false
-  },
-  {
     "type": "[ ]",
     "named": false
   },
@@ -346,6 +337,10 @@
   },
   {
     "type": "date",
+    "named": true
+  },
+  {
+    "type": "highlight",
     "named": true
   },
   {

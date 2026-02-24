@@ -231,17 +231,11 @@
       }
     },
     "highlight": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": ">"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[^\\n]+"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": ">[^\\n]+"
+      }
     },
     "code": {
       "type": "SEQ",
@@ -301,67 +295,10 @@
       "type": "TOKEN",
       "content": {
         "type": "PREC",
-        "value": 2,
+        "value": 10,
         "content": {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "DONE"
-            },
-            {
-              "type": "STRING",
-              "value": "WIP"
-            },
-            {
-              "type": "STRING",
-              "value": "TODO"
-            },
-            {
-              "type": "STRING",
-              "value": "BLOCKED"
-            },
-            {
-              "type": "STRING",
-              "value": "PENDING"
-            },
-            {
-              "type": "STRING",
-              "value": "COMPLETED"
-            },
-            {
-              "type": "STRING",
-              "value": "IN-PROGRESS"
-            },
-            {
-              "type": "STRING",
-              "value": "INPROGRESS"
-            },
-            {
-              "type": "STRING",
-              "value": "CANCELLED"
-            },
-            {
-              "type": "STRING",
-              "value": "ONHOLD"
-            },
-            {
-              "type": "STRING",
-              "value": "ON-HOLD"
-            },
-            {
-              "type": "STRING",
-              "value": "REVIEW"
-            },
-            {
-              "type": "STRING",
-              "value": "MERGED"
-            },
-            {
-              "type": "STRING",
-              "value": "DEPLOYED"
-            }
-          ]
+          "type": "PATTERN",
+          "value": "DONE|WIP|TODO|AWAITING"
         }
       }
     },
@@ -485,8 +422,15 @@
       }
     },
     "plain_text": {
-      "type": "PATTERN",
-      "value": "[^\\n()\\[\\]#@`]+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\s\\n()\\[\\]#@`>]+"
+        }
+      }
     },
     "blank_line": {
       "type": "SYMBOL",
