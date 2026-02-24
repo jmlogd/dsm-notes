@@ -221,7 +221,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "highlight"
+            "name": "bluemark"
           },
           {
             "type": "SYMBOL",
@@ -230,16 +230,9 @@
         ]
       }
     },
-    "highlight": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 5,
-        "content": {
-          "type": "PATTERN",
-          "value": "::[^\\n]+"
-        }
-      }
+    "bluemark": {
+      "type": "PATTERN",
+      "value": "!![^\\s\\n]+"
     },
     "code": {
       "type": "SEQ",
@@ -416,7 +409,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "highlight"
+            "name": "bluemark"
           },
           {
             "type": "SYMBOL",
@@ -432,7 +425,7 @@
         "value": -1,
         "content": {
           "type": "PATTERN",
-          "value": "[^\\s\\n()\\[\\]#@`>:]+"
+          "value": "[^\\s\\n()\\[\\]#@`>:!]+"
         }
       }
     },

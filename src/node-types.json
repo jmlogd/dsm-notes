@@ -32,15 +32,15 @@
           "named": true
         },
         {
+          "type": "bluemark",
+          "named": true
+        },
+        {
           "type": "code",
           "named": true
         },
         {
           "type": "date",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -202,15 +202,15 @@
           "named": true
         },
         {
+          "type": "bluemark",
+          "named": true
+        },
+        {
           "type": "code",
           "named": true
         },
         {
           "type": "date",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -332,15 +332,15 @@
     "named": true
   },
   {
+    "type": "bluemark",
+    "named": true
+  },
+  {
     "type": "bullet",
     "named": true
   },
   {
     "type": "date",
-    "named": true
-  },
-  {
-    "type": "highlight",
     "named": true
   },
   {
