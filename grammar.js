@@ -61,14 +61,14 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    bluemark: $ => seq(
+    bluemark: $ => prec(5, seq(
       $.bluemark_marker,
       $.bluemark_content
-    ),
+    )),
 
     bluemark_marker: $ => '!!',
 
-    bluemark_content: $ => prec.left(repeat1(choice(
+    bluemark_content: $ => prec.left(5, repeat1(choice(
       $.priority,
       $.tag,
       $.mention,
@@ -83,7 +83,7 @@ module.exports = grammar({
       $.bluemark_text
     ))),
 
-    bluemark_text: $ => token(prec(-1, /[^\s\n()\[\]#@`>:!]+/)),
+    bluemark_text: $ => token(prec(1, /[^\s\n()\[\]#@`>:!]+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 

@@ -88,11 +88,6 @@
     }
   },
   {
-    "type": "bluemark_text",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "checkbox",
     "named": true,
     "fields": {}
@@ -167,11 +162,6 @@
   },
   {
     "type": "parenthetical",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "plain_text",
     "named": true,
     "fields": {}
   },
@@ -424,6 +414,10 @@
     "named": true
   },
   {
+    "type": "bluemark_text",
+    "named": true
+  },
+  {
     "type": "bullet",
     "named": true
   },
@@ -441,6 +435,10 @@
   },
   {
     "type": "number",
+    "named": true
+  },
+  {
+    "type": "plain_text",
     "named": true
   },
   {

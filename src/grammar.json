@@ -231,17 +231,21 @@
       }
     },
     "bluemark": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "bluemark_marker"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bluemark_content"
-        }
-      ]
+      "type": "PREC",
+      "value": 5,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "bluemark_marker"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "bluemark_content"
+          }
+        ]
+      }
     },
     "bluemark_marker": {
       "type": "STRING",
@@ -249,7 +253,7 @@
     },
     "bluemark_content": {
       "type": "PREC_LEFT",
-      "value": 0,
+      "value": 5,
       "content": {
         "type": "REPEAT1",
         "content": {
@@ -311,7 +315,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PREC",
-        "value": -1,
+        "value": 1,
         "content": {
           "type": "PATTERN",
           "value": "[^\\s\\n()\\[\\]#@`>:!]+"
