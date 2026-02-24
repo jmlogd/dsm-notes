@@ -7,12 +7,9 @@ module.exports = grammar({
     source_file: $ => repeat(choice(
       $.section_header,
       $.task,
-      $.quote,
       $.text_line,
       $.blank_line
     )),
-
-    quote: $ => seq('>', /[^\n]+/, $._newline),
 
     section_header: $ => seq(
       choice(
@@ -60,16 +57,19 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
+      $.highlight,
       $.plain_text
     )),
 
+    highlight: $ => seq('>', /[^\n]+/),
+
     code: $ => seq('`', /[^`\n]+/, '`'),
 
-    priority: $ => choice('[HIGH]', '[URGENT]', '[LOW]', '[CRITICAL]'),
+    priority: $ => choice('[HIGH]', '[URGENT]', '[LOW]', '[CRITICAL]', '[MEDIUM]'),
     tag: $ => /#[a-zA-Z0-9_-]+/,
     mention: $ => /@[a-zA-Z0-9_-]+/,
     service_name: $ => /[a-z]+(-[a-z]+)+/,
-    status: $ => choice(
+    status: $ => token(prec(2, choice(
       'DONE', 
       'WIP', 
       'TODO', 
@@ -84,7 +84,7 @@ module.exports = grammar({
       'REVIEW',
       'MERGED',
       'DEPLOYED'
-    ),
+    ))),
     arrow: $ => choice('->', '=>', '→'),
     date: $ => /\d{4}-\d{2}-\d{2}|\d{1,2}\/\d{1,2}(\/\d{2,4})?/,
     time: $ => /\d{1,2}:\d{2}(:\d{2})?(am|pm|AM|PM)?/,
@@ -105,6 +105,7 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
+      $.highlight,
       $.plain_text
     )),
 

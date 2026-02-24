@@ -32,8 +32,8 @@
 ; Code/inline highlight
 (code) @string.special
 
-; Quote/highlight line
-(quote) @markup.italic
+; Highlight with >
+(highlight) @markup.italic
 
 ; Operators and comments
 (arrow) @operator
