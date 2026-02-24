@@ -61,7 +61,15 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    highlight: $ => token(/>[^\n]+/),
+    highlight: $ => seq($.quote_marker, $.highlight_content),
+    quote_marker: $ => '>',
+    highlight_content: $ => repeat1(choice(
+      $.status,
+      $.mention,
+      $.tag,
+      $.highlight_text
+    )),
+    highlight_text: $ => token(prec(-2, /[^\s\n#@]+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 

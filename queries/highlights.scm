@@ -33,7 +33,8 @@
 (code) @string.special
 
 ; Highlight with >
-(highlight) @function
+(quote_marker) @function
+(highlight_text) @function
 
 ; Operators and comments
 (arrow) @operator
