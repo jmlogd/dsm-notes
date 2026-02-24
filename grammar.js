@@ -57,19 +57,11 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
-      $.highlight,
+      $.quote_marker,
       $.plain_text
     )),
 
-    highlight: $ => seq($.quote_marker, $.highlight_content),
     quote_marker: $ => '>',
-    highlight_content: $ => repeat1(choice(
-      $.status,
-      $.mention,
-      $.tag,
-      $.highlight_text
-    )),
-    highlight_text: $ => token(prec(-2, /[^\s\n#@]+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
@@ -98,7 +90,7 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
-      $.highlight,
+      $.quote_marker,
       $.plain_text
     )),
 
