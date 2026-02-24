@@ -61,7 +61,9 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    highlight: $ => token(seq('>', /[^\n]+/)),
+    highlight: $ => seq($.quote_marker, $.highlight_text),
+    quote_marker: $ => '>',
+    highlight_text: $ => /[^\n]+/,
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
@@ -69,22 +71,10 @@ module.exports = grammar({
     tag: $ => /#[a-zA-Z0-9_-]+/,
     mention: $ => /@[a-zA-Z0-9_-]+/,
     service_name: $ => /[a-z]+(-[a-z]+)+/,
-    status: $ => token(prec(10, choice(
-      'DONE', 
-      'WIP', 
-      'TODO', 
-      'BLOCKED', 
-      'PENDING', 
-      'COMPLETED', 
-      'IN-PROGRESS',
-      'INPROGRESS',
-      'CANCELLED',
-      'ONHOLD',
-      'ON-HOLD',
-      'REVIEW',
-      'MERGED',
-      'DEPLOYED'
-    ))),
+    status: $ => choice($.status_done, $.status_wip, $.status_todo),
+    status_done: $ => token(prec(10, /DONE|COMPLETED|MERGED|DEPLOYED/)),
+    status_wip: $ => token(prec(10, /WIP|IN-PROGRESS|INPROGRESS|REVIEW/)),
+    status_todo: $ => token(prec(10, /TODO|BLOCKED|PENDING|CANCELLED|ONHOLD|ON-HOLD/)),
     arrow: $ => choice('->', '=>', '→'),
     date: $ => /\d{4}-\d{2}-\d{2}|\d{1,2}\/\d{1,2}(\/\d{2,4})?/,
     time: $ => /\d{1,2}:\d{2}(:\d{2})?(am|pm|AM|PM)?/,
