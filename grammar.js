@@ -69,7 +69,7 @@ module.exports = grammar({
     tag: $ => /#[a-zA-Z0-9_-]+/,
     mention: $ => /@[a-zA-Z0-9_-]+/,
     service_name: $ => /[a-z]+(-[a-z]+)+/,
-    status: $ => token(prec(2, choice(
+    status: $ => token(prec(10, choice(
       'DONE', 
       'WIP', 
       'TODO', 
@@ -109,7 +109,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    plain_text: $ => /[^\n()\[\]#@`]+/,
+    plain_text: $ => /[^\s\n()\[\]#@`>]+/,
     blank_line: $ => $._newline,
     _newline: $ => /\r?\n/
   }
