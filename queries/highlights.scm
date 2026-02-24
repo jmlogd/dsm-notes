@@ -32,6 +32,9 @@
 ; Code/inline highlight
 (code) @string.special
 
+; Quote/highlight line
+(quote) @markup.italic
+
 ; Operators and comments
 (arrow) @operator
 (parenthetical) @comment

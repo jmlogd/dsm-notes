@@ -16,6 +16,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "quote"
+          },
+          {
+            "type": "SYMBOL",
             "name": "text_line"
           },
           {
@@ -24,6 +28,23 @@
           }
         ]
       }
+    },
+    "quote": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]+"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
     },
     "section_header": {
       "type": "SEQ",

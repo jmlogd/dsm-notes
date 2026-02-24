@@ -7,9 +7,12 @@ module.exports = grammar({
     source_file: $ => repeat(choice(
       $.section_header,
       $.task,
+      $.quote,
       $.text_line,
       $.blank_line
     )),
+
+    quote: $ => seq('>', /[^\n]+/, $._newline),
 
     section_header: $ => seq(
       choice(

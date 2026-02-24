@@ -30,6 +30,11 @@
     "fields": {}
   },
   {
+    "type": "quote",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "section_header",
     "named": true,
     "fields": {},
@@ -82,6 +87,10 @@
       "types": [
         {
           "type": "blank_line",
+          "named": true
+        },
+        {
+          "type": "quote",
           "named": true
         },
         {
@@ -213,6 +222,10 @@
   },
   {
     "type": "=>",
+    "named": false
+  },
+  {
+    "type": ">",
     "named": false
   },
   {
