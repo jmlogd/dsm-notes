@@ -61,7 +61,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    highlight: $ => 'BLUETHIS',
+    highlight: $ => seq('!!', /[^\s]*/),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
@@ -94,7 +94,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    plain_text: $ => token(prec(-1, /[^\s\n()\[\]#@`>:]+/)),
+    plain_text: $ => token(prec(-1, /[^\s\n()\[\]#@`>:!]+/)),
     blank_line: $ => $._newline,
     _newline: $ => /\r?\n/
   }
