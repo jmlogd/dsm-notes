@@ -253,61 +253,65 @@
     },
     "bluemark_content": {
       "type": "PREC_LEFT",
-      "value": 5,
+      "value": 10,
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "priority"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "tag"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "mention"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "service_name"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "status"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arrow"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "date"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "time"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "parenthetical"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "url"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "code"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "bluemark_text"
-            }
-          ]
+          "type": "PREC",
+          "value": 10,
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "priority"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "tag"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "mention"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "service_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "status"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "arrow"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "date"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "time"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "parenthetical"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "url"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "code"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bluemark_text"
+              }
+            ]
+          }
         }
       }
     },

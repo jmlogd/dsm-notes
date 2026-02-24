@@ -68,7 +68,7 @@ module.exports = grammar({
 
     bluemark_marker: $ => '!!',
 
-    bluemark_content: $ => prec.left(5, repeat1(choice(
+    bluemark_content: $ => prec.left(10, repeat1(prec(10, choice(
       $.priority,
       $.tag,
       $.mention,
@@ -81,7 +81,7 @@ module.exports = grammar({
       $.url,
       $.code,
       $.bluemark_text
-    ))),
+    )))),
 
     bluemark_text: $ => token(prec(1, /[^\s\n()\[\]#@`>:!]+/)),
 
