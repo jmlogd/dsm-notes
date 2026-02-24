@@ -32,8 +32,9 @@
 ; Code/inline highlight
 (code) @string.special
 
-; Highlight with >
+; Highlight with ::
 (highlight) @function
+(highlight_text) @function
 
 ; Operators and comments
 (arrow) @operator
