@@ -231,8 +231,92 @@
       }
     },
     "bluemark": {
-      "type": "PATTERN",
-      "value": "!![^\\s\\n]+"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "bluemark_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bluemark_content"
+        }
+      ]
+    },
+    "bluemark_marker": {
+      "type": "STRING",
+      "value": "!!"
+    },
+    "bluemark_content": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "priority"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tag"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "mention"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "service_name"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "status"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "arrow"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "date"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "time"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "parenthetical"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "url"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "code"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bluemark_text"
+            }
+          ]
+        }
+      }
+    },
+    "bluemark_text": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\s\\n()\\[\\]#@`>:!]+"
+        }
+      }
     },
     "code": {
       "type": "SEQ",

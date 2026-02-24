@@ -61,7 +61,29 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    bluemark: $ => /!![^\s\n]+/,
+    bluemark: $ => seq(
+      $.bluemark_marker,
+      $.bluemark_content
+    ),
+
+    bluemark_marker: $ => '!!',
+
+    bluemark_content: $ => prec.left(repeat1(choice(
+      $.priority,
+      $.tag,
+      $.mention,
+      $.service_name,
+      $.status,
+      $.arrow,
+      $.date,
+      $.time,
+      $.parenthetical,
+      $.url,
+      $.code,
+      $.bluemark_text
+    ))),
+
+    bluemark_text: $ => token(prec(-1, /[^\s\n()\[\]#@`>:!]+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 

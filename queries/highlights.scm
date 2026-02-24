@@ -32,8 +32,9 @@
 ; Code/inline highlight
 (code) @string.special
 
-; Blue marker with !!
-(bluemark) @function
+; Blue marker with !! - marker gets special color, content parsed normally
+(bluemark_marker) @keyword.modifier
+(bluemark_text) @function
 
 ; Operators and comments
 (arrow) @operator
