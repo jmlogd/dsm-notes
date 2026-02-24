@@ -61,7 +61,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    quote_marker: $ => '>',
+    quote_marker: $ => token('>'),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
