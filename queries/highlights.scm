@@ -34,7 +34,6 @@
 
 ; Highlight with ::
 (highlight) @function
-(highlight_text) @function
 
 ; Operators and comments
 (arrow) @operator

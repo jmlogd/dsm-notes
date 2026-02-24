@@ -61,8 +61,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    highlight: $ => seq('::', $.highlight_text),
-    highlight_text: $ => /[^\n]+/,
+    highlight: $ => prec(10, seq('::', /[^\n]*/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
