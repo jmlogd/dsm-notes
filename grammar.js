@@ -61,7 +61,10 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    highlight: $ => seq($.highlight_marker, $.highlight_content),
+    highlight: $ => seq(
+      field('marker', $.highlight_marker),
+      field('content', $.highlight_content)
+    ),
     highlight_marker: $ => '>>',
     highlight_content: $ => repeat1(choice(
       $.status,
