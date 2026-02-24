@@ -22,7 +22,7 @@
 
 ; Technical content
 (service_name) @property
-(status) @keyword.modifier
+(status) @error
 (url) @string.special.url
 
 ; Time and dates
@@ -33,7 +33,7 @@
 (code) @string.special
 
 ; Highlight with >
-(highlight) @markup.italic
+(highlight) @warning
 
 ; Operators and comments
 (arrow) @operator
