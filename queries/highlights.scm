@@ -22,9 +22,7 @@
 
 ; Technical content
 (service_name) @property
-(status (status_done) @string)
-(status (status_wip) @function)
-(status (status_todo) @keyword.exception)
+(status) @string
 (url) @string.special.url
 
 ; Time and dates
@@ -35,8 +33,7 @@
 (code) @string.special
 
 ; Highlight with >
-(highlight (quote_marker) @function)
-(highlight (highlight_text) @function)
+(highlight) @function
 
 ; Operators and comments
 (arrow) @operator
