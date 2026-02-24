@@ -20,6 +20,65 @@
     "fields": {}
   },
   {
+    "type": "line_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "mention",
+          "named": true
+        },
+        {
+          "type": "parenthetical",
+          "named": true
+        },
+        {
+          "type": "plain_text",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "service_name",
+          "named": true
+        },
+        {
+          "type": "status",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "time",
+          "named": true
+        },
+        {
+          "type": "url",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parenthetical",
     "named": true,
     "fields": {}
@@ -169,6 +228,10 @@
           "named": true
         },
         {
+          "type": "plain_text",
+          "named": true
+        },
+        {
           "type": "priority",
           "named": true
         },
@@ -185,10 +248,6 @@
           "named": true
         },
         {
-          "type": "text",
-          "named": true
-        },
-        {
           "type": "time",
           "named": true
         },
@@ -202,7 +261,17 @@
   {
     "type": "text_line",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "line_content",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "(",
@@ -345,6 +414,10 @@
     "named": true
   },
   {
+    "type": "plain_text",
+    "named": true
+  },
+  {
     "type": "planned",
     "named": true
   },
@@ -358,10 +431,6 @@
   },
   {
     "type": "tag",
-    "named": true
-  },
-  {
-    "type": "text",
     "named": true
   },
   {

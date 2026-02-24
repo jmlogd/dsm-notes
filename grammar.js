@@ -60,7 +60,7 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
-      $.text
+      $.plain_text
     )),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
@@ -90,9 +90,25 @@ module.exports = grammar({
     time: $ => /\d{1,2}:\d{2}(:\d{2})?(am|pm|AM|PM)?/,
     parenthetical: $ => seq('(', /[^)\n]+/, ')'),
     url: $ => /https?:\/\/[^\s)]+/,
-    text: $ => /[^\n()\[\]#@]+/,
 
-    text_line: $ => seq(/[^\n\-*•0-9\[\]][^\n]*/, $._newline),
+    text_line: $ => seq($.line_content, $._newline),
+
+    line_content: $ => repeat1(choice(
+      $.priority,
+      $.tag,
+      $.mention,
+      $.service_name,
+      $.status,
+      $.arrow,
+      $.date,
+      $.time,
+      $.parenthetical,
+      $.url,
+      $.code,
+      $.plain_text
+    )),
+
+    plain_text: $ => /[^\n()\[\]#@`]+/,
     blank_line: $ => $._newline,
     _newline: $ => /\r?\n/
   }

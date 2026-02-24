@@ -242,7 +242,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "text"
+            "name": "plain_text"
           }
         ]
       }
@@ -404,22 +404,78 @@
       "type": "PATTERN",
       "value": "https?:\\/\\/[^\\s)]+"
     },
-    "text": {
-      "type": "PATTERN",
-      "value": "[^\\n()\\[\\]#@]+"
-    },
     "text_line": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[^\\n\\-*•0-9\\[\\]][^\\n]*"
+          "type": "SYMBOL",
+          "name": "line_content"
         },
         {
           "type": "SYMBOL",
           "name": "_newline"
         }
       ]
+    },
+    "line_content": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "priority"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tag"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mention"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "service_name"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "status"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "arrow"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "date"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "time"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "parenthetical"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "url"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "code"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "plain_text"
+          }
+        ]
+      }
+    },
+    "plain_text": {
+      "type": "PATTERN",
+      "value": "[^\\n()\\[\\]#@`]+"
     },
     "blank_line": {
       "type": "SYMBOL",

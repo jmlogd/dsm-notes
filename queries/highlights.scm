@@ -38,4 +38,5 @@
 ; Operators and comments
 (arrow) @operator
 (parenthetical) @comment
+(plain_text) @variable
 (text) @variable
