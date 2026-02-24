@@ -61,7 +61,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    highlight: $ => seq('!!', /[^\s]*/),
+    highlight: $ => token(seq('!!', /\S+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
