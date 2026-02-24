@@ -56,14 +56,32 @@ module.exports = grammar({
       $.time,
       $.parenthetical,
       $.url,
+      $.code,
       $.text
     )),
+
+    code: $ => seq('`', /[^`\n]+/, '`'),
 
     priority: $ => choice('[HIGH]', '[URGENT]', '[LOW]', '[CRITICAL]'),
     tag: $ => /#[a-zA-Z0-9_-]+/,
     mention: $ => /@[a-zA-Z0-9_-]+/,
     service_name: $ => /[a-z]+(-[a-z]+)+/,
-    status: $ => choice('DONE', 'WIP', 'TODO', 'BLOCKED', 'PENDING', 'COMPLETED', 'IN-PROGRESS'),
+    status: $ => choice(
+      'DONE', 
+      'WIP', 
+      'TODO', 
+      'BLOCKED', 
+      'PENDING', 
+      'COMPLETED', 
+      'IN-PROGRESS',
+      'INPROGRESS',
+      'CANCELLED',
+      'ONHOLD',
+      'ON-HOLD',
+      'REVIEW',
+      'MERGED',
+      'DEPLOYED'
+    ),
     arrow: $ => choice('->', '=>', '→'),
     date: $ => /\d{4}-\d{2}-\d{2}|\d{1,2}\/\d{1,2}(\/\d{2,4})?/,
     time: $ => /\d{1,2}:\d{2}(:\d{2})?(am|pm|AM|PM)?/,

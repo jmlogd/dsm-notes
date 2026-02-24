@@ -217,10 +217,31 @@
           },
           {
             "type": "SYMBOL",
+            "name": "code"
+          },
+          {
+            "type": "SYMBOL",
             "name": "text"
           }
         ]
       }
+    },
+    "code": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "`"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^`\\n]+"
+        },
+        {
+          "type": "STRING",
+          "value": "`"
+        }
+      ]
     },
     "priority": {
       "type": "CHOICE",
@@ -285,6 +306,34 @@
         {
           "type": "STRING",
           "value": "IN-PROGRESS"
+        },
+        {
+          "type": "STRING",
+          "value": "INPROGRESS"
+        },
+        {
+          "type": "STRING",
+          "value": "CANCELLED"
+        },
+        {
+          "type": "STRING",
+          "value": "ONHOLD"
+        },
+        {
+          "type": "STRING",
+          "value": "ON-HOLD"
+        },
+        {
+          "type": "STRING",
+          "value": "REVIEW"
+        },
+        {
+          "type": "STRING",
+          "value": "MERGED"
+        },
+        {
+          "type": "STRING",
+          "value": "DEPLOYED"
         }
       ]
     },

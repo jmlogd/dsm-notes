@@ -29,6 +29,9 @@
 (date) @number
 (time) @number
 
+; Code/inline highlight
+(code) @string.special
+
 ; Operators and comments
 (arrow) @operator
 (parenthetical) @comment
