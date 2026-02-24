@@ -1,0 +1,256 @@
+{
+  "name": "dsm",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "section_header"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "task"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "text_line"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "blank_line"
+          }
+        ]
+      }
+    },
+    "section_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "yesterday"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "today"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tomorrow"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "blockers"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "notes"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ":"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
+    },
+    "yesterday": {
+      "type": "PATTERN",
+      "value": "[Yy]esterday"
+    },
+    "today": {
+      "type": "PATTERN",
+      "value": "[Tt]oday"
+    },
+    "tomorrow": {
+      "type": "PATTERN",
+      "value": "[Tt]omorrow"
+    },
+    "blockers": {
+      "type": "PATTERN",
+      "value": "[Bb]lockers?"
+    },
+    "notes": {
+      "type": "PATTERN",
+      "value": "[Nn]otes?"
+    },
+    "task": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "bullet"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "task_content"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
+    },
+    "bullet": {
+      "type": "PATTERN",
+      "value": "[-*•]"
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "[0-9]+\\."
+    },
+    "task_content": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "service_name"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "status"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "arrow"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "parenthetical"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "text"
+          }
+        ]
+      }
+    },
+    "service_name": {
+      "type": "PATTERN",
+      "value": "[a-z]+(-[a-z]+)+"
+    },
+    "status": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "DONE"
+        },
+        {
+          "type": "STRING",
+          "value": "WIP"
+        },
+        {
+          "type": "STRING",
+          "value": "TODO"
+        },
+        {
+          "type": "STRING",
+          "value": "BLOCKED"
+        },
+        {
+          "type": "STRING",
+          "value": "PENDING"
+        },
+        {
+          "type": "STRING",
+          "value": "COMPLETED"
+        }
+      ]
+    },
+    "arrow": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        }
+      ]
+    },
+    "parenthetical": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^)\\n]+"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "text": {
+      "type": "PATTERN",
+      "value": "[^\\n()\\-*•]+"
+    },
+    "text_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[^\\n\\-*•0-9][^\\n]*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
+    },
+    "blank_line": {
+      "type": "SYMBOL",
+      "name": "_newline"
+    },
+    "_newline": {
+      "type": "PATTERN",
+      "value": "\\r?\\n"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[ \\t]"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
