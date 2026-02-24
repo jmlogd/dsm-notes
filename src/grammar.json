@@ -457,13 +457,67 @@
       "value": "[a-z]+(-[a-z]+)+"
     },
     "status": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "status_done"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "status_wip"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "status_todo"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "status_awaiting"
+        }
+      ]
+    },
+    "status_done": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
         "value": 10,
         "content": {
-          "type": "PATTERN",
-          "value": "DONE|WIP|TODO|AWAITING"
+          "type": "STRING",
+          "value": "DONE"
+        }
+      }
+    },
+    "status_wip": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 10,
+        "content": {
+          "type": "STRING",
+          "value": "WIP"
+        }
+      }
+    },
+    "status_todo": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 10,
+        "content": {
+          "type": "STRING",
+          "value": "TODO"
+        }
+      }
+    },
+    "status_awaiting": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 10,
+        "content": {
+          "type": "STRING",
+          "value": "AWAITING"
         }
       }
     },

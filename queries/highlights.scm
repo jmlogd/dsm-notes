@@ -22,8 +22,13 @@
 
 ; Technical content
 (service_name) @property
-(status) @string
 (url) @string.special.url
+
+; Status with individual colors
+(status_done) @string           ; Green
+(status_wip) @function          ; Blue
+(status_todo) @keyword.exception ; Red
+(status_awaiting) @constant     ; Orange/Yellow
 
 ; Time and dates
 (date) @number
@@ -41,7 +46,7 @@
 (bluemark_tag) @label
 (bluemark_mention) @string
 (bluemark_service_name) @property
-(bluemark_status) @string
+; bluemark_status inherits from status children (status_done, status_wip, etc.)
 (bluemark_url) @string.special.url
 (bluemark_date) @number
 (bluemark_time) @number
