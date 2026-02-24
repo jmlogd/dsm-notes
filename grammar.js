@@ -61,7 +61,7 @@ module.exports = grammar({
       $.plain_text
     )),
 
-    bluemark: $ => token(seq('!!', /\S+/)),
+    bluemark: $ => /!!\S+/,
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
