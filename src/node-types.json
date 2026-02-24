@@ -29,6 +29,16 @@
     }
   },
   {
+    "type": "bluemark_arrow",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bluemark_code",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "bluemark_content",
     "named": true,
     "fields": {},
@@ -37,7 +47,39 @@
       "required": true,
       "types": [
         {
-          "type": "arrow",
+          "type": "bluemark_arrow",
+          "named": true
+        },
+        {
+          "type": "bluemark_code",
+          "named": true
+        },
+        {
+          "type": "bluemark_date",
+          "named": true
+        },
+        {
+          "type": "bluemark_mention",
+          "named": true
+        },
+        {
+          "type": "bluemark_parenthetical",
+          "named": true
+        },
+        {
+          "type": "bluemark_priority",
+          "named": true
+        },
+        {
+          "type": "bluemark_service_name",
+          "named": true
+        },
+        {
+          "type": "bluemark_status",
+          "named": true
+        },
+        {
+          "type": "bluemark_tag",
           "named": true
         },
         {
@@ -45,47 +87,30 @@
           "named": true
         },
         {
-          "type": "code",
+          "type": "bluemark_time",
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "mention",
-          "named": true
-        },
-        {
-          "type": "parenthetical",
-          "named": true
-        },
-        {
-          "type": "priority",
-          "named": true
-        },
-        {
-          "type": "service_name",
-          "named": true
-        },
-        {
-          "type": "status",
-          "named": true
-        },
-        {
-          "type": "tag",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "url",
+          "type": "bluemark_url",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "bluemark_parenthetical",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bluemark_priority",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bluemark_text",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "checkbox",
@@ -162,6 +187,11 @@
   },
   {
     "type": "parenthetical",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "plain_text",
     "named": true,
     "fields": {}
   },
@@ -410,11 +440,35 @@
     "named": true
   },
   {
+    "type": "bluemark_date",
+    "named": true
+  },
+  {
     "type": "bluemark_marker",
     "named": true
   },
   {
-    "type": "bluemark_text",
+    "type": "bluemark_mention",
+    "named": true
+  },
+  {
+    "type": "bluemark_service_name",
+    "named": true
+  },
+  {
+    "type": "bluemark_status",
+    "named": true
+  },
+  {
+    "type": "bluemark_tag",
+    "named": true
+  },
+  {
+    "type": "bluemark_time",
+    "named": true
+  },
+  {
+    "type": "bluemark_url",
     "named": true
   },
   {
@@ -435,10 +489,6 @@
   },
   {
     "type": "number",
-    "named": true
-  },
-  {
-    "type": "plain_text",
     "named": true
   },
   {

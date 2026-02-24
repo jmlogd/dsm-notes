@@ -171,68 +171,89 @@
       ]
     },
     "task_content": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_task_element"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bluemark"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
             "type": "SYMBOL",
-            "name": "priority"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "tag"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mention"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "service_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "status"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "arrow"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "date"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "time"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "parenthetical"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "url"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "code"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "bluemark"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "plain_text"
+            "name": "_task_element"
           }
-        ]
-      }
+        }
+      ]
+    },
+    "_task_element": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "priority"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "mention"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "service_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "status"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "arrow"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "date"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "time"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parenthetical"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "url"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "plain_text"
+        }
+      ]
     },
     "bluemark": {
-      "type": "PREC",
-      "value": 5,
+      "type": "PREC_LEFT",
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
@@ -253,73 +274,128 @@
     },
     "bluemark_content": {
       "type": "PREC_LEFT",
-      "value": 10,
+      "value": 0,
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "PREC",
-          "value": 10,
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "priority"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "tag"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "mention"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "service_name"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "status"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "arrow"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "date"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "time"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "parenthetical"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "url"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "code"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "bluemark_text"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "_bluemark_element"
         }
       }
+    },
+    "_bluemark_element": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "priority"
+          },
+          "named": true,
+          "value": "bluemark_priority"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "tag"
+          },
+          "named": true,
+          "value": "bluemark_tag"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "mention"
+          },
+          "named": true,
+          "value": "bluemark_mention"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "service_name"
+          },
+          "named": true,
+          "value": "bluemark_service_name"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "status"
+          },
+          "named": true,
+          "value": "bluemark_status"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "arrow"
+          },
+          "named": true,
+          "value": "bluemark_arrow"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          },
+          "named": true,
+          "value": "bluemark_date"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "time"
+          },
+          "named": true,
+          "value": "bluemark_time"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parenthetical"
+          },
+          "named": true,
+          "value": "bluemark_parenthetical"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "url"
+          },
+          "named": true,
+          "value": "bluemark_url"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "code"
+          },
+          "named": true,
+          "value": "bluemark_code"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bluemark_text"
+        }
+      ]
     },
     "bluemark_text": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
-        "value": 1,
+        "value": -1,
         "content": {
           "type": "PATTERN",
           "value": "[^\\s\\n()\\[\\]#@`>:!]+"
@@ -451,64 +527,32 @@
       ]
     },
     "line_content": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_task_element"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bluemark"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
             "type": "SYMBOL",
-            "name": "priority"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "tag"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mention"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "service_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "status"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "arrow"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "date"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "time"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "parenthetical"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "url"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "code"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "bluemark"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "plain_text"
+            "name": "_task_element"
           }
-        ]
-      }
+        }
+      ]
     },
     "plain_text": {
       "type": "TOKEN",

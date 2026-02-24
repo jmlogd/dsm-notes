@@ -45,7 +45,14 @@ module.exports = grammar({
     number: $ => /[0-9]+\./,
     checkbox: $ => choice('[ ]', '[x]', '[X]'),
 
-    task_content: $ => repeat1(choice(
+    task_content: $ => choice(
+      // With bluemark: elements before !!, then bluemark takes rest of line
+      seq(repeat($._task_element), $.bluemark),
+      // Without bluemark: just normal elements
+      repeat1($._task_element)
+    ),
+
+    _task_element: $ => choice(
       $.priority,
       $.tag,
       $.mention,
@@ -57,33 +64,34 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
-      $.bluemark,
       $.plain_text
-    )),
+    ),
 
-    bluemark: $ => prec(5, seq(
+    bluemark: $ => prec.left(seq(
       $.bluemark_marker,
       $.bluemark_content
     )),
 
     bluemark_marker: $ => '!!',
 
-    bluemark_content: $ => prec.left(10, repeat1(prec(10, choice(
-      $.priority,
-      $.tag,
-      $.mention,
-      $.service_name,
-      $.status,
-      $.arrow,
-      $.date,
-      $.time,
-      $.parenthetical,
-      $.url,
-      $.code,
-      $.bluemark_text
-    )))),
+    bluemark_content: $ => prec.left(repeat1($._bluemark_element)),
 
-    bluemark_text: $ => token(prec(1, /[^\s\n()\[\]#@`>:!]+/)),
+    _bluemark_element: $ => choice(
+      alias($.priority, $.bluemark_priority),
+      alias($.tag, $.bluemark_tag),
+      alias($.mention, $.bluemark_mention),
+      alias($.service_name, $.bluemark_service_name),
+      alias($.status, $.bluemark_status),
+      alias($.arrow, $.bluemark_arrow),
+      alias($.date, $.bluemark_date),
+      alias($.time, $.bluemark_time),
+      alias($.parenthetical, $.bluemark_parenthetical),
+      alias($.url, $.bluemark_url),
+      alias($.code, $.bluemark_code),
+      $.bluemark_text
+    ),
+
+    bluemark_text: $ => token(prec(-1, /[^\s\n()\[\]#@`>:!]+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
@@ -100,21 +108,10 @@ module.exports = grammar({
 
     text_line: $ => seq($.line_content, $._newline),
 
-    line_content: $ => repeat1(choice(
-      $.priority,
-      $.tag,
-      $.mention,
-      $.service_name,
-      $.status,
-      $.arrow,
-      $.date,
-      $.time,
-      $.parenthetical,
-      $.url,
-      $.code,
-      $.bluemark,
-      $.plain_text
-    )),
+    line_content: $ => choice(
+      seq(repeat($._task_element), $.bluemark),
+      repeat1($._task_element)
+    ),
 
     plain_text: $ => token(prec(-1, /[^\s\n()\[\]#@`>:!]+/)),
     blank_line: $ => $._newline,
