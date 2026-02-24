@@ -18,7 +18,7 @@
 
 ; Tags and mentions
 (tag) @label
-(mention) @variable.builtin
+(mention) @string
 
 ; Technical content
 (service_name) @property
@@ -39,4 +39,3 @@
 (arrow) @operator
 (parenthetical) @comment
 (plain_text) @variable
-(text) @variable
