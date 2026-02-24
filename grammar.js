@@ -57,11 +57,11 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
-      $.highlight,
+      $.bluemark,
       $.plain_text
     )),
 
-    highlight: $ => token(seq('!!', /\S+/)),
+    bluemark: $ => token(seq('!!', /\S+/)),
 
     code: $ => seq('`', /[^`\n]+/, '`'),
 
@@ -90,7 +90,7 @@ module.exports = grammar({
       $.parenthetical,
       $.url,
       $.code,
-      $.highlight,
+      $.bluemark,
       $.plain_text
     )),
 

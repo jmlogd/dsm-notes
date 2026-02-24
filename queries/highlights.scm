@@ -32,8 +32,8 @@
 ; Code/inline highlight
 (code) @string.special
 
-; Highlight with ::
-(highlight) @function
+; Blue marker with !!
+(bluemark) @function
 
 ; Operators and comments
 (arrow) @operator
