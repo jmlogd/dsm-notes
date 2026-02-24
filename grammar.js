@@ -65,7 +65,7 @@ module.exports = grammar({
       field('marker', $.highlight_marker),
       field('content', $.highlight_content)
     ),
-    highlight_marker: $ => '>>',
+    highlight_marker: $ => />>/,
     highlight_content: $ => repeat1(choice(
       $.status,
       $.mention,
