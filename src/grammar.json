@@ -50,6 +50,18 @@
             {
               "type": "SYMBOL",
               "name": "notes"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "accomplishments"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "planned"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "review"
             }
           ]
         },
@@ -91,6 +103,18 @@
       "type": "PATTERN",
       "value": "[Nn]otes?"
     },
+    "accomplishments": {
+      "type": "PATTERN",
+      "value": "[Aa]ccomplishments?"
+    },
+    "planned": {
+      "type": "PATTERN",
+      "value": "[Pp]lanned"
+    },
+    "review": {
+      "type": "PATTERN",
+      "value": "[Rr]eview"
+    },
     "task": {
       "type": "SEQ",
       "members": [
@@ -104,6 +128,10 @@
             {
               "type": "SYMBOL",
               "name": "number"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "checkbox"
             }
           ]
         },
@@ -125,11 +153,40 @@
       "type": "PATTERN",
       "value": "[0-9]+\\."
     },
+    "checkbox": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[ ]"
+        },
+        {
+          "type": "STRING",
+          "value": "[x]"
+        },
+        {
+          "type": "STRING",
+          "value": "[X]"
+        }
+      ]
+    },
     "task_content": {
       "type": "REPEAT1",
       "content": {
         "type": "CHOICE",
         "members": [
+          {
+            "type": "SYMBOL",
+            "name": "priority"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tag"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mention"
+          },
           {
             "type": "SYMBOL",
             "name": "service_name"
@@ -144,7 +201,19 @@
           },
           {
             "type": "SYMBOL",
+            "name": "date"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "time"
+          },
+          {
+            "type": "SYMBOL",
             "name": "parenthetical"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "url"
           },
           {
             "type": "SYMBOL",
@@ -152,6 +221,35 @@
           }
         ]
       }
+    },
+    "priority": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[HIGH]"
+        },
+        {
+          "type": "STRING",
+          "value": "[URGENT]"
+        },
+        {
+          "type": "STRING",
+          "value": "[LOW]"
+        },
+        {
+          "type": "STRING",
+          "value": "[CRITICAL]"
+        }
+      ]
+    },
+    "tag": {
+      "type": "PATTERN",
+      "value": "#[a-zA-Z0-9_-]+"
+    },
+    "mention": {
+      "type": "PATTERN",
+      "value": "@[a-zA-Z0-9_-]+"
     },
     "service_name": {
       "type": "PATTERN",
@@ -183,6 +281,10 @@
         {
           "type": "STRING",
           "value": "COMPLETED"
+        },
+        {
+          "type": "STRING",
+          "value": "IN-PROGRESS"
         }
       ]
     },
@@ -196,8 +298,20 @@
         {
           "type": "STRING",
           "value": "=>"
+        },
+        {
+          "type": "STRING",
+          "value": "→"
         }
       ]
+    },
+    "date": {
+      "type": "PATTERN",
+      "value": "\\d{4}-\\d{2}-\\d{2}|\\d{1,2}\\/\\d{1,2}(\\/\\d{2,4})?"
+    },
+    "time": {
+      "type": "PATTERN",
+      "value": "\\d{1,2}:\\d{2}(:\\d{2})?(am|pm|AM|PM)?"
     },
     "parenthetical": {
       "type": "SEQ",
@@ -216,16 +330,20 @@
         }
       ]
     },
+    "url": {
+      "type": "PATTERN",
+      "value": "https?:\\/\\/[^\\s)]+"
+    },
     "text": {
       "type": "PATTERN",
-      "value": "[^\\n()\\-*•]+"
+      "value": "[^\\n()\\[\\]#@]+"
     },
     "text_line": {
       "type": "SEQ",
       "members": [
         {
           "type": "PATTERN",
-          "value": "[^\\n\\-*•0-9][^\\n]*"
+          "value": "[^\\n\\-*•0-9\\[\\]][^\\n]*"
         },
         {
           "type": "SYMBOL",

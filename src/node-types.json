@@ -10,7 +10,17 @@
     "fields": {}
   },
   {
+    "type": "checkbox",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parenthetical",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "priority",
     "named": true,
     "fields": {}
   },
@@ -23,11 +33,23 @@
       "required": true,
       "types": [
         {
+          "type": "accomplishments",
+          "named": true
+        },
+        {
           "type": "blockers",
           "named": true
         },
         {
           "type": "notes",
+          "named": true
+        },
+        {
+          "type": "planned",
+          "named": true
+        },
+        {
+          "type": "review",
           "named": true
         },
         {
@@ -90,6 +112,10 @@
           "named": true
         },
         {
+          "type": "checkbox",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
@@ -113,7 +139,19 @@
           "named": true
         },
         {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "mention",
+          "named": true
+        },
+        {
           "type": "parenthetical",
+          "named": true
+        },
+        {
+          "type": "priority",
           "named": true
         },
         {
@@ -125,7 +163,19 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "time",
+          "named": true
+        },
+        {
+          "type": "url",
           "named": true
         }
       ]
@@ -169,6 +219,10 @@
     "named": false
   },
   {
+    "type": "IN-PROGRESS",
+    "named": false
+  },
+  {
     "type": "PENDING",
     "named": false
   },
@@ -181,11 +235,51 @@
     "named": false
   },
   {
+    "type": "[ ]",
+    "named": false
+  },
+  {
+    "type": "[CRITICAL]",
+    "named": false
+  },
+  {
+    "type": "[HIGH]",
+    "named": false
+  },
+  {
+    "type": "[LOW]",
+    "named": false
+  },
+  {
+    "type": "[URGENT]",
+    "named": false
+  },
+  {
+    "type": "[X]",
+    "named": false
+  },
+  {
+    "type": "[x]",
+    "named": false
+  },
+  {
+    "type": "accomplishments",
+    "named": true
+  },
+  {
     "type": "blockers",
     "named": true
   },
   {
     "type": "bullet",
+    "named": true
+  },
+  {
+    "type": "date",
+    "named": true
+  },
+  {
+    "type": "mention",
     "named": true
   },
   {
@@ -197,11 +291,27 @@
     "named": true
   },
   {
+    "type": "planned",
+    "named": true
+  },
+  {
+    "type": "review",
+    "named": true
+  },
+  {
     "type": "service_name",
     "named": true
   },
   {
+    "type": "tag",
+    "named": true
+  },
+  {
     "type": "text",
+    "named": true
+  },
+  {
+    "type": "time",
     "named": true
   },
   {
@@ -213,7 +323,15 @@
     "named": true
   },
   {
+    "type": "url",
+    "named": true
+  },
+  {
     "type": "yesterday",
     "named": true
+  },
+  {
+    "type": "→",
+    "named": false
   }
 ]
