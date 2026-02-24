@@ -1,17 +1,17 @@
 ; Section headers
-(yesterday) @keyword.control
+(yesterday) @keyword
 (today) @function
 (tomorrow) @constant
-(blockers) @error
+(blockers) @keyword.exception
 (notes) @string
-(generic_section) @type
 
 ; Task markers
 (bullet) @punctuation.special
-(number) @constant.numeric
+(number) @number
 
 ; Content
-(service_name) @variable.builtin
-(status) @keyword
+(service_name) @property
+(status) @keyword.modifier
 (arrow) @operator
 (parenthetical) @comment
+(text) @variable
